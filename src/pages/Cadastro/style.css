@@ -1,6 +1,53 @@
-
-form {
+.formCadastro {
     width: 90%;
-    margin: auto;
-    background-color: aqua;
+    min-width: 650px;
+    min-height: 450px;
+    padding: 20px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fcfcfc;
+    margin: 30px auto;
+    border-radius: 5px;
+    -webkit-box-shadow: 10px 10px 17px 1px rgba(115, 115, 115, 1);
+    -moz-box-shadow: 10px 10px 17px 1px rgba(115, 115, 115, 1);
+    box-shadow: 10px 10px 17px 1px rgba(115, 115, 115, 1);
 }
+.cadastro1 {
+    max-width: 400px;
+}
+.cadastro2 {
+    max-width: 400px;
+}
+
+.logoLogin {
+    width: 60px;
+}
+
+h3 {
+    margin: 10px auto;
+}
+
+div {
+    text-align: left;
+    display: block;
+    width: 100%;
+    font-weight: bold;
+}
+
+button {
+    width: 200px;
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 20px;
+}
+
+p {
+    font-size: 0.9rem;
+}
+
+
