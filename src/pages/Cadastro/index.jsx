@@ -21,6 +21,7 @@ function Cadastro() {
   const cpfHandle = (evento) => {
     if (evento.target.value.length <= 11) setCpf(evento.target.value);
   };
+
   const cepHandle = (evento) => {
     if (evento.target.value.length <= 8) setCep(evento.target.value);
   };
@@ -65,10 +66,8 @@ function Cadastro() {
     axios
       .post("cliente", usuario)
       .then((response) => {
-        console.log(response.data);
-        console.log(usuario);
-        localStorage.setItem("token", response.data.access_token);
-        alert(`Usuário ${nome} cadastrada com sucesso!`);
+        //localStorage.setItem("token", response.data.access_token);
+        alert(`Usuário ${nome} cadastrado com sucesso!`);
         setNome("");
         setEmail("");
         setUserName("");
@@ -92,13 +91,15 @@ function Cadastro() {
   return (
     <div className="container">
         <form className="formCadastro" onSubmit={efetuarCadastro}>
-          <h3 className="mb-5">Cadastro</h3>
+          <div className="header mb-3 bg-primary text-white">
+            <h4 className="mb-0">Cadastro de usuário</h4>
+          </div>
           <div className=" d-flex flex-row flex-wrap justify-content-around">
             <div className="cadastro1">
               <div>
                 <label className="mb-2">Nome</label>
                 <input
-                  className="form-control py-2 px-4"
+                  className="form-control py-1 px-4"
                   required
                   type="text"
                   value={nome}
@@ -109,7 +110,7 @@ function Cadastro() {
               <div>
                 <label className="mb-2">Email</label>
                 <input
-                  className="form-control py-2 px-4"
+                  className="form-control py-1 px-4"
                   required
                   type="email"
                   value={email}
@@ -120,7 +121,7 @@ function Cadastro() {
               <div>
                 <label className="mb-2">Username</label>
                 <input
-                  className="form-control py-2 px-4"
+                  className="form-control py-1 px-4"
                   required
                   type="text"
                   value={userName}
@@ -132,7 +133,7 @@ function Cadastro() {
               <div>
                 <label className="mb-2">Senha</label>
                 <input
-                  className="form-control py-2 px-4"
+                  className="form-control py-1 px-4"
                   required
                   type="password"
                   value={senha}
@@ -143,7 +144,7 @@ function Cadastro() {
               <div>
                 <label className="mb-2">CPF</label>
                 <input
-                  className="form-control py-2 px-4"
+                  className="form-control py-1 px-4"
                   required
                   type="number"
                   value={cpf}
@@ -154,7 +155,7 @@ function Cadastro() {
               <div>
                 <label className="mb-2">Telefone</label>
                 <input
-                  className="form-control py-2 px-4"
+                  className="form-control py-1 px-4"
                   required
                   type="number"
                   value={telefone}
@@ -165,7 +166,7 @@ function Cadastro() {
               <div>
                 <label className="mb-2">Data de Nascimento</label>
                 <input
-                  className="form-control py-2 px-4"
+                  className="form-control py-1 px-4"
                   required
                   type="data"
                   value={dataNascimento}
@@ -178,7 +179,7 @@ function Cadastro() {
               <div>
                 <label className="mb-2">Cep</label>
                 <input
-                  className="form-control py-2 px-4"
+                  className="form-control py-1 px-4"
                   required
                   type="number"
                   value={cep}
@@ -190,7 +191,7 @@ function Cadastro() {
               <div>
                 <label className="mb-2">Rua</label>
                 <input
-                  className="form-control py-2 px-4"
+                  className="form-control py-1 px-4"
                   required
                   type="text"
                   value={rua}
@@ -200,7 +201,7 @@ function Cadastro() {
               <div>
                 <label className="mb-2">Numero Residência</label>
                 <input
-                  className="form-control py-2 px-4"
+                  className="form-control py-1 px-4"
                   required
                   type="number"
                   value={numero}
@@ -211,7 +212,7 @@ function Cadastro() {
               <div>
                 <label className="mb-2">Bairro</label>
                 <input
-                  className="form-control py-2 px-4"
+                  className="form-control py-1 px-4"
                   required
                   type="text"
                   value={bairro}
@@ -221,7 +222,7 @@ function Cadastro() {
               <div>
                 <label className="mb-2">Cidade</label>
                 <input
-                  className="form-control py-2 px-4"
+                  className="form-control py-1 px-4"
                   required
                   type="text"
                   value={cidade}

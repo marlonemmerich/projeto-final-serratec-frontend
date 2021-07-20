@@ -2,7 +2,6 @@
     width: 90%;
     min-width: 650px;
     min-height: 450px;
-    padding: 20px 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -14,6 +13,14 @@
     -moz-box-shadow: 10px 10px 17px 1px rgba(115, 115, 115, 1);
     box-shadow: 10px 10px 17px 1px rgba(115, 115, 115, 1);
 }
+
+.header {
+    width: 100%;
+    background-color: aquamarine;
+    border-radius: 5px 5px 0 0;
+    padding: 1rem;
+}
+
 .cadastro1 {
     max-width: 400px;
 }
