@@ -5,25 +5,21 @@ import Cadastro from './pages/Cadastro';
 import CadastroMedico from './pages/CadastroMedico';
 import CadastroColaborador from './pages/CadastroColaborador';
 import CadastroMaster from './pages/CadastroMaster';
+import Login from './pages/Login';
 
 
 function App() {
   return (
     <BrowserRouter>
-      <Header />
       <Switch>
-        <Route exact path="/">
-          <Cadastro />
-        </Route>
-        <Route path="/cadastro-medico">
-          <CadastroMedico />
-        </Route>
-        <Route path="/cadastro-colaborador">
-          <CadastroColaborador />
-        </Route>
-        <Route path="/cadastro-master">
-          <CadastroMaster />
-        </Route>
+        <Route exact path="/" component={Login} />
+        <div>
+          <Header />
+          <Route path="/cadastro" component={Cadastro} />
+          <Route path="/cadastro-medico" component={CadastroMedico}/>
+          <Route path="/cadastro-colaborador" component={CadastroColaborador}/>
+          <Route path="/cadastro-master" component={CadastroMaster}/>
+        </div>
       </Switch>
     </BrowserRouter>
   )
