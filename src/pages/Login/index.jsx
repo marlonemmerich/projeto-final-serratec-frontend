@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
-import bgLogin from "../../assets/images/bg-login.png";
 import MensagemErro from "./MensagemErro";
+import logo from '../../assets/images/logoLogin.png';
 
 import "./style.css";
 
@@ -23,7 +23,7 @@ function Login() {
         senha: senha
     }
 
-    axios.post('http://localhost:8080/login', usuario)
+    axios.post('http://localhost:8080/api/login', usuario)
         .then((response) => {
             localStorage.setItem("id", response.data.usuario.id);
             localStorage.setItem("token", response.data.token);
@@ -31,7 +31,7 @@ function Login() {
                 "userName",
                 response.data.usuario.userName
             );
-            history.push("/home");
+            history.push("/cadastro");
         })
         .catch(error => { 
             console.error(error)
@@ -43,8 +43,9 @@ function Login() {
   }  
 
   return (
-    <div className="main" style={{ backgroundImage: `url(${bgLogin})` }}>
+    <div className="main">
       <form className="boxLogin" onSubmit={logar}>
+        <img src={logo} alt="Logo SerraMed" />
         <h3>Login</h3>
         <input
           type="text"

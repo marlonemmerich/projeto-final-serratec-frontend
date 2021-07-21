@@ -4,10 +4,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url('../../assets/images/bg-login.png');
+    background-size: cover;
+    background-position: top center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
 }
 
 .boxLogin {
-    height: 500px;
+    min-height: 500px;
     width: 450px;
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 5px;
@@ -21,7 +26,7 @@
 }
 
 .boxLogin h3 {
-    margin: 3.5rem auto;
+    margin: 2rem auto;
 }
 
 .boxLogin input {

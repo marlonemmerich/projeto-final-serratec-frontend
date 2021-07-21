@@ -65,7 +65,7 @@ function CadastroMaster() {
     };
 
     axios
-      .post("cliente", usuario)
+      .post("http://localhost:8080/api/usuarios", usuario)
       .then((response) => {
         //localStorage.setItem("token", response.data.access_token);
         alert(`Usuário ${nome} cadastrado com sucesso!`);
@@ -93,7 +93,7 @@ function CadastroMaster() {
     <div className="container">
         <form className="formCadastro" onSubmit={efetuarCadastro}>
           <div className="header mb-3 bg-primary text-white">
-            <h5 className="mb-0">Cadastro de colaborador</h5>
+            <h5 className="mb-0">Cadastro de usuário master</h5>
           </div>
           <div className=" d-flex flex-row flex-wrap justify-content-around">
             <div className="cadastro1">
@@ -168,7 +168,7 @@ function CadastroMaster() {
                 <label className="mb-2">Data de Nascimento</label>
                 <input
                   className="form-control py-1 px-4"
-                  required
+                  
                   type="data"
                   value={dataNascimento}
                   onChange={(evento) => setDataNascimento(evento.target.value)}
@@ -181,7 +181,7 @@ function CadastroMaster() {
                 <label className="mb-2">Cep</label>
                 <input
                   className="form-control py-1 px-4"
-                  required
+                  
                   type="number"
                   value={cep}
                   onBlur={obterCep}
@@ -193,7 +193,7 @@ function CadastroMaster() {
                 <label className="mb-2">Rua</label>
                 <input
                   className="form-control py-1 px-4"
-                  required
+                  
                   type="text"
                   value={rua}
                   onChange={(evento) => setRua(evento.target.value)}
@@ -203,7 +203,7 @@ function CadastroMaster() {
                 <label className="mb-2">Numero Residência</label>
                 <input
                   className="form-control py-1 px-4"
-                  required
+                  
                   type="number"
                   value={numero}
                   onChange={(evento) => setNumero(evento.target.value)}
@@ -214,7 +214,7 @@ function CadastroMaster() {
                 <label className="mb-2">Bairro</label>
                 <input
                   className="form-control py-1 px-4"
-                  required
+                  
                   type="text"
                   value={bairro}
                   onChange={(evento) => setBairro(evento.target.value)}
@@ -224,7 +224,7 @@ function CadastroMaster() {
                 <label className="mb-2">Cidade</label>
                 <input
                   className="form-control py-1 px-4"
-                  required
+                  
                   type="text"
                   value={cidade}
                   onChange={(evento) => setCidade(evento.target.value)}
@@ -234,7 +234,7 @@ function CadastroMaster() {
                 <label className="mb-2">Estado</label>
                 <input
                   className="form-control py-1 px-4"
-                  required
+                  
                   type="text"
                   value={estado}
                   onChange={(evento) => setEstado(evento.target.value)}
