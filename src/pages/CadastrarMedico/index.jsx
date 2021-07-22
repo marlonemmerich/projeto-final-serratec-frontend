@@ -12,7 +12,7 @@ function CadastroMedico() {
   const [cpf, setCpf] = useState("");
   const [telefone, setTelefone] = useState("");
   const [dataNascimento, setDataNascimento] = useState("");
-  const [crm, setCrm] = useState("")
+  const [crm, setCrm] = useState("");
   const [cep, setCep] = useState("");
   const [rua, setRua] = useState("");
   const [numero, setNumero] = useState("");
@@ -93,7 +93,7 @@ function CadastroMedico() {
   };
 
   return (
-    <div className="container">
+    <div className="container py-1">
         <form className="formCadastro" onSubmit={efetuarCadastro}>
           <div className="header mb-3 bg-primary text-white">
             <h5 className="mb-0">Cadastro de médico</h5>
@@ -130,7 +130,6 @@ function CadastroMedico() {
                   type="text"
                   value={userName}
                   onChange={(evento) => setUserName(evento.target.value)}
-                  minLength="5"
                   placeholder="Digite seu nome de usuário"
                 />
               </div>

@@ -22,7 +22,7 @@ function Header() {
           <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
             <li>
               <button className="dropdown-item d-flex justify-content-start">
-                <i class="fas fa-sign-out-alt text-danger"></i>
+                <i className="fas fa-sign-out-alt text-danger"></i>
                 <span className="ms-2 text-danger">Sair</span>
               </button>
             </li>

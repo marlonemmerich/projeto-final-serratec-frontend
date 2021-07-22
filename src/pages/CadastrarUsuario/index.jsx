@@ -7,9 +7,9 @@ function Cadastro() {
       <div className="box">
           <h5 className="bg-primary text-white">Cadastrar usuário</h5>
           <div className="box-btn">
-              <Link to="/cadastro-medico" class="btn btn-primary">Médico</Link>
-              <Link to="/cadastro-colaborador" class="btn btn-primary">Colaborador</Link>
-              <Link to="/cadastro-master" class="btn btn-primary">Master</Link>
+              <Link to="/cadastrar-medico" className="btn btn-primary">Médico</Link>
+              <Link to="/cadastrar-colaborador" className="btn btn-primary">Colaborador</Link>
+              <Link to="/cadastrar-master" className="btn btn-primary">Master</Link>
           </div>
       </div>
   )

@@ -4,7 +4,7 @@ import axios from "axios";
 
 import "./style.css";
 
-function CadastroColaborador() {
+function CadastroMaster() {
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [userName, setUserName] = useState("");
@@ -90,10 +90,10 @@ function CadastroColaborador() {
   };
 
   return (
-    <div className="container">
+    <div className="container py-1">
         <form className="formCadastro" onSubmit={efetuarCadastro}>
           <div className="header mb-3 bg-primary text-white">
-            <h5 className="mb-0">Cadastro de colaborador</h5>
+            <h5 className="mb-0">Cadastro de usuário master</h5>
           </div>
           <div className=" d-flex flex-row flex-wrap justify-content-around">
             <div className="cadastro1">
@@ -127,7 +127,6 @@ function CadastroColaborador() {
                   type="text"
                   value={userName}
                   onChange={(evento) => setUserName(evento.target.value)}
-                  minLength="5"
                   placeholder="Digite seu nome de usuário"
                 />
               </div>
@@ -168,6 +167,7 @@ function CadastroColaborador() {
                 <label className="mb-2">Data de Nascimento</label>
                 <input
                   className="form-control py-1 px-4"
+                  
                   type="data"
                   value={dataNascimento}
                   onChange={(evento) => setDataNascimento(evento.target.value)}
@@ -180,6 +180,7 @@ function CadastroColaborador() {
                 <label className="mb-2">Cep</label>
                 <input
                   className="form-control py-1 px-4"
+                  
                   type="number"
                   value={cep}
                   onBlur={obterCep}
@@ -249,4 +250,4 @@ function CadastroColaborador() {
   );
 }
 
-export default CadastroColaborador;
+export default CadastroMaster;

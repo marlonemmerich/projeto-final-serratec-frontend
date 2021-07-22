@@ -31,7 +31,7 @@ function Login() {
                 "userName",
                 response.data.usuario.userName
             );
-            history.push("/cadastro");
+            history.push("/home");
         })
         .catch(error => { 
             console.error(error)
