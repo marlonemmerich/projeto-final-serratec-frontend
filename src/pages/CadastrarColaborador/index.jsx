@@ -91,12 +91,12 @@ function CadastroColaborador() {
 
   return (
     <div className="container py-1">
-        <form className="formCadastro" onSubmit={efetuarCadastro}>
-          <div className="header mb-3 bg-primary text-white">
+        <form className="form-cadastro-colaborador" onSubmit={efetuarCadastro}>
+          <div className="header-cadastro-colaborador mb-3 bg-primary text-white">
             <h5 className="mb-0">Cadastro de colaborador</h5>
           </div>
           <div className=" d-flex flex-row flex-wrap justify-content-around">
-            <div className="cadastro1">
+            <div className="corpo-cadastro-colaborador1">
               <div>
                 <label className="mb-2">Nome</label>
                 <input
@@ -174,7 +174,7 @@ function CadastroColaborador() {
                 />
               </div>
             </div>
-            <div className="cadastro2">
+            <div className="corpo-cadastro-colaborador2">
               <div>
                 <label className="mb-2">Cep</label>
                 <input
@@ -238,9 +238,9 @@ function CadastroColaborador() {
                 />
               </div>
             </div>
-            <div className="px-4 ms-4 mb-3">
+            <div className="botoes-cadastro-colaborador mb-5">
               <button className="btn btn-primary">Cadastrar</button>
-              <Link to="/" className="btn btn-danger">Cancelar</Link>
+              <Link to="/home" className="btn btn-danger btn-cadastro-colaborador">Cancelar</Link>
             </div>
           </div>
         </form>

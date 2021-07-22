@@ -7,7 +7,7 @@
     flex-wrap: wrap;
 }
 
-.cardHome {
+.card-home {
     width: 250px;
     height: 200px;
     border-radius: 5px;
@@ -20,7 +20,7 @@
     cursor: pointer;
 }
 
-.cardHeader {
+.titulo-card-home {
     display: flex;
     align-items: center;
     padding: 3rem 2rem;
@@ -28,22 +28,22 @@
     flex-direction: column;
 }
 
-.cardHeader h4 {
+.titulo-card-home h4 {
     margin: 1rem;
     font-size: 1.2rem;
 
 }
 
-.cardBody {
+.corpo-card-home {
     display: flex;
     padding: 10px;
     position: absolute;
     bottom: 0;
 }
 
-.btnCard {
+.btn-card-home {
     width: 70px;
-    margin: 5px auto;
+    margin: 0 2px!important;
     text-decoration: none;
     padding: 5px;
     border-radius: 5px;
@@ -61,10 +61,10 @@
 .background:hover {
     height: 70%;
     transition: ease-in .2s;
+    z-index: -1;
 }
 
-.background:hover .btnCard {
+.background:hover .btn-card-home {
     transition: ease-in .2s;
-    z-index: 1;
-
+    z-index: 9;
 }

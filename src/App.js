@@ -9,7 +9,7 @@ import CadastrarPaciente from './pages/CadastrarPaciente';
 import CadastrarProcedimento from './pages/CadastrarProcedimento';
 import Login from './pages/Login';
 import Home from './pages/Home';
-import Consulta from './pages/Consulta';
+import ConsultarPaciente from './pages/ConsultarPaciente';
 import ResultadoConsulta from './pages/ResultadoConsulta';
 
 
@@ -21,14 +21,16 @@ function App() {
         <>
           <Header />
           <Route path="/home" component={Home} />
-          <Route path="/cadastrar-usuario" component={CadastrarUsuario} />
-          <Route path="/cadastrar-medico" component={CadastrarMedico} />
-          <Route path="/cadastrar-colaborador" component={CadastrarColaborador} />
-          <Route path="/cadastrar-master" component={CadastrarMaster} />
-          <Route path="/consulta" component={Consulta} />
-          <Route path="/resultado-consulta" component={ResultadoConsulta} />
-          <Route path="/cadastrar-paciente" component={CadastrarPaciente} />
-          <Route path="/cadastrar-procedimento" component={CadastrarProcedimento} />
+          <>
+            <Route path="/cadastrar-usuario" component={CadastrarUsuario} />
+            <Route path="/cadastrar-medico" component={CadastrarMedico} />
+            <Route path="/cadastrar-colaborador" component={CadastrarColaborador} />
+            <Route path="/cadastrar-master" component={CadastrarMaster} />
+            <Route path="/cadastrar-paciente" component={CadastrarPaciente} />
+            <Route path="/consultar-paciente" component={ConsultarPaciente} />
+            <Route path="/resultado-consulta" component={ResultadoConsulta} />
+            <Route path="/cadastrar-procedimento" component={CadastrarProcedimento} />
+          </>
         </>
       </Switch>
     </BrowserRouter>

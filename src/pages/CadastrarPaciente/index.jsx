@@ -86,13 +86,13 @@ function CadastroPaciente() {
   };
 
  return (
-   <div className="container">
-     <form className="formCadastro" onSubmit={efetuarCadastro}>
-       <div className="header mb-3 bg-primary text-white">
-         <h5 className="mb-0">Cadastro de Paciente</h5>
+   <div className="container p-0">
+     <form className="form-cadastro-paciente" onSubmit={efetuarCadastro}>
+       <div className="header-cadastro-paciente mb-3 bg-primary text-white">
+         <h5 className="mb-0">Cadastro de paciente</h5>
        </div>
        <div className=" d-flex flex-row flex-wrap justify-content-around">
-         <div className="cadastro1">
+         <div className="corpo-cadastro-paciente1">
            <div>
              <label className="mb-2">Nome</label>
              <input
@@ -160,7 +160,7 @@ function CadastroPaciente() {
             />
            </div>
          </div>
-         <div className="cadastro2">
+         <div className="corpo-cadastro-paciente2">
            <div>
              <label className="mb-2">Cep</label>
              <input
@@ -186,7 +186,7 @@ function CadastroPaciente() {
            <div>
              <label className="mb-2">Número da Residência</label>
              <input
-              className="from-control py-1 px-4"
+              className="form-control py-1 px-4"
               required 
               type="number"
               value={numero}
@@ -197,7 +197,7 @@ function CadastroPaciente() {
            <div>
              <label className="mb-2">Bairro</label>
              <input 
-              classname="form-control py-1 px-4"
+              className="form-control py-1 px-4"
               required
               type="text"
               value={bairro}
@@ -225,9 +225,9 @@ function CadastroPaciente() {
             />
            </div>
          </div>
-         <div className="px-4 ms-4 mb-3">
+         <div className="botoes-cadastro-paciente">
            <button className="btn btn-primary">Cadastrar</button>
-           <Link to="/" className="btn btn-danger">Cancelar</Link>
+           <Link to="/home" className="btn btn-danger">Cancelar</Link>
          </div>
        </div>
      </form>

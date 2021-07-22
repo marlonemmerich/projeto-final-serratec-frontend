@@ -1,5 +1,5 @@
-.formCadastro {
-    width: 80%;
+.form-consultar-paciente {
+    width: 60%;
     min-width: 650px;
     min-height: 250px;
     display: flex;
@@ -14,54 +14,40 @@
     box-shadow: 10px 10px 17px 1px rgba(115, 115, 115, 1);
 }
 
-.header {
+.header-consultar-paciente {
     width: 100%;
     background-color: aquamarine;
     border-radius: 5px 5px 0 0;
+    padding: 1rem;
 }
 
-.cadastro1 {
-    max-width: 400px;
-}
-.cadastro2 {
-    max-width: 400px;
-}
-
-.logoLogin {
-    width: 60px;
+.corpo-consultar-paciente {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
 }
 
-h3 {
-    margin: 10px auto;
+.botoes-consultar-paciente {
+    margin: 1rem 2.2rem;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 60%;
+    height: auto;
 }
 
-div {
-    text-align: left;
-    display: block;
-    width: 100%;
-    font-weight: bold;
-}
-
-.btn {
+.botoes-consultar-paciente .btn {
     width: 190px;
     font-size: 1rem;
     padding: 5px;
     border-radius: 5px;
     cursor: pointer;
-    margin: 20px 10px;
+    margin: 20px 0;
 }
 
-p {
-    font-size: 0.9rem;
-}
-
-.botao {
-    align-items: center;
-    justify-content: center;
-    display: flex;
-  
-    
-   
-}
 
 

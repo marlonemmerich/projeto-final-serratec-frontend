@@ -4,20 +4,20 @@ import "./style.css";
 function Home() {
   return (
     <div className="container">
-      <div className="cardHome">
+      <div className="card-home">
         <div className="bg-primary background">
-          <div className="cardHeader">
+          <div className="titulo-card-home">
             <i className="fas fa-id-badge mx-3 fs-2 text-white"></i>
             <h4 className="text-white">PACIENTES</h4>
           </div>
-          <div className="cardBody">
-            <Link to="/cadastrar-paciente" className="btn btn-primary btnCard">
+          <div className="corpo-card-home">
+            <Link to="/cadastrar-paciente" className="btn btn-primary btn-card-home">
               Cadastrar
             </Link>
-            <Link to="/editar-paciente" className="btn btn-primary btnCard">
+            <Link to="/editar-paciente" className="btn btn-primary btn-card-home">
               Editar
             </Link>
-            <Link to="/consultar-paciente" className="btn btn-primary btnCard">
+            <Link to="/consultar-paciente" className="btn btn-primary btn-card-home">
               Consultar
             </Link>
           </div>
@@ -26,25 +26,25 @@ function Home() {
 
       {/* PROCEDIMENTOS */}
 
-      <div className="cardHome">
+      <div className="card-home">
         <div className="bg-primary background">
-          <div className="cardHeader">
+          <div className="titulo-card-home">
             <i className="fas fa-syringe mx-3 fs-2 text-white"></i>
             <h4 className="text-white">PROCEDIMENTOS</h4>
           </div>
-          <div className="cardBody">
+          <div className="corpo-card-home">
             <Link
               to="/cadastrar-procedimento"
-              className="btn btn-primary btnCard"
+              className="btn btn-primary btn-card-home"
             >
               Cadastrar
             </Link>
-            <Link to="/editar-procedimento" className="btn btn-primary btnCard">
+            <Link to="/editar-procedimento" className="btn btn-primary btn-card-home">
               Editar
             </Link>
             <Link
               to="/consultar-procedimento"
-              className="btn btn-primary btnCard"
+              className="btn btn-primary btn-card-home"
             >
               Consultar
             </Link>
@@ -52,29 +52,29 @@ function Home() {
         </div>
       </div>
 
-      {/* FINANCEIRO */}
+      {/* RECIBOS */}
 
-      <div className="cardHome">
+      <div className="card-home">
         <div className="bg-primary background">
-          <div className="cardHeader">
+          <div className="titulo-card-home">
             <i className="fas fa-receipt mx-3 fs-2 text-white"></i>
-            <h4 className="text-white">FINANCEIRO</h4>
+            <h4 className="text-white">RECIBOS</h4>
           </div>
-          <div className="cardBody">
+          <div className="corpo-card-home">
             <Link
               to="/cadastrar-procedimento"
-              className="btn btn-primary btnCard"
+              className="btn btn-primary btn-card-home"
             >
-              Cadastrar
+              Gerar
             </Link>
-            <Link to="/editar-procedimento" className="btn btn-primary btnCard">
+            <Link to="/editar-procedimento" className="btn btn-primary btn-card-home">
               Editar
             </Link>
             <Link
               to="/consultar-procedimento"
-              className="btn btn-primary btnCard"
+              className="btn btn-primary btn-card-home"
             >
-              Consultar
+              Histórico
             </Link>
           </div>
         </div>
@@ -82,47 +82,47 @@ function Home() {
 
       {/* USUARIOS */}
 
-      <div className="cardHome">
+      <div className="card-home">
         <div className="bg-primary background">
-          <div className="cardHeader">
+          <div className="titulo-card-home">
             <i className="fas fa-users mx-3 fs-2 text-white"></i>
             <h4 className="text-white">USUARIOS</h4>
           </div>
-          <div className="cardBody">
-            <Link to="/cadastrar-usuario" className="btn btn-primary btnCard">
+          <div className="corpo-card-home">
+            <Link to="/cadastrar-usuario" className="btn btn-primary btn-card-home">
               Cadastrar
             </Link>
-            <Link to="/editar-usuario" className="btn btn-primary btnCard">
+            <Link to="/editar-usuario" className="btn btn-primary btn-card-home">
               Editar
             </Link>
-            <Link to="/consultar-usuario" className="btn btn-primary btnCard">
+            <Link to="/consultar-usuario" className="btn btn-primary btn-card-home">
               Consultar
             </Link>
           </div>
         </div>
       </div>
 
-      {/* EMPRESA */}
+      {/* CONFIGURAÇÃO */}
 
-      <div className="cardHome">
+      <div className="card-home">
         <div className="bg-primary background">
-          <div className="cardHeader">
-            <i className="fas fa-building mx-3 fs-2 text-white"></i>
-            <h4 className="text-white">EMPRESA</h4>
+          <div className="titulo-card-home">
+            <i className="fas fa-cogs mx-3 fs-2 text-white"></i>
+            <h4 className="text-white">CONFIGURAÇÃO</h4>
           </div>
-          <div className="cardBody">
+          <div className="corpo-card-home">
             <Link
-              to="/cadastrar-procedimento"
-              className="btn btn-primary btnCard"
+              to="/cadastrar-paciente"
+              className="btn btn-primary btn-card-home"
             >
               Cadastrar
             </Link>
-            <Link to="/editar-procedimento" className="btn btn-primary btnCard">
+            <Link to="/editar-paciente" className="btn btn-primary btn-card-home">
               Editar
             </Link>
             <Link
-              to="/consultar-procedimento"
-              className="btn btn-primary btnCard"
+              to="/consultar-paciente"
+              className="btn btn-primary btn-card-home"
             >
               Consultar
             </Link>

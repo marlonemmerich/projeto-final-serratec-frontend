@@ -32,12 +32,12 @@ function CadastroProcedimento() {
 
   return (
     <div className="container">
-      <form className="formCadastro" onSubmit={efetuarCadastro}>
-        <div className="header bg-primary text-white m-0">
-          <h5 className="mb-0">Cadastro de Procedimentos</h5>
+      <form className="form-cadastro-procedimentos" onSubmit={efetuarCadastro}>
+        <div className="header-cadastro-procedimentos bg-primary text-white m-0">
+          <h5 className="mb-0">Cadastro de procedimentos</h5>
         </div>
         <div className=" d-flex flex-row flex-wrap justify-content-around">
-          <div className="cadastro1">
+          <div className="corpo-cadastro-procedimentos">
             <div>
               <label className="mb-2">Código</label>
               <input
@@ -70,9 +70,9 @@ function CadastroProcedimento() {
               />
             </div>
           </div>
-          <div className="px-4 mb-3 d-flex justify-content-center">
+          <div className="botoes-cadastro-procedimentos mb-4">
             <button className="btn btn-primary">Cadastrar</button>
-            <Link to="/" className="btn btn-danger">
+            <Link to="/home" className="btn btn-danger">
               Cancelar
             </Link>
           </div>

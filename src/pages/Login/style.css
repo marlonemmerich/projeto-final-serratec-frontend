@@ -11,6 +11,10 @@
     background-repeat: no-repeat;
 }
 
+.logoLogin {
+    width: 60px;
+}
+
 .boxLogin {
     min-height: 500px;
     width: 450px;

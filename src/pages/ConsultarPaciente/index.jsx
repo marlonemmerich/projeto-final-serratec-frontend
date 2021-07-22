@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
 import "./style.css";
 
-function Consulta() {
+function ConsultarPaciente() {
   const [nome, setNome] = useState("");
  
   const consultar = (evento) => { 
@@ -23,12 +23,12 @@ function Consulta() {
 
   return (
     <div className="container">
-      <form className="formCadastro" onSubmit={consultar}>
-        <div className="header mb-3 bg-primary text-white">
-          <h5 className="mb-0">Consulta de Usuario</h5>
+      <form className="form-consultar-paciente" onSubmit={consultar}>
+        <div className="header-consultar-paciente mb-3 bg-primary text-white">
+          <h5 className="mb-0">Consulta de paciente</h5>
         </div>
-        <div className=" d-flex flex-row flex-wrap justify-content-around">
-          <div className="cadastro1">
+        <div className=" d-flex flex-row flex-wrap justify-content-around mb-5">
+          <div className="corpo-consultar-paciente">
             <div>
               <label className="mb-2">Nome</label>
               <input
@@ -41,9 +41,9 @@ function Consulta() {
               />
             </div>
           </div>
-          <div className="botao">
+          <div className="botoes-consultar-paciente">
             <button className="btn btn-primary">Consultar</button>
-            <Link to="/" className="btn btn-danger">
+            <Link to="/home" className="btn btn-danger">
               Cancelar
             </Link>
           </div>
@@ -53,4 +53,4 @@ function Consulta() {
   );
 }
 
-export default Consulta;
+export default ConsultarPaciente;

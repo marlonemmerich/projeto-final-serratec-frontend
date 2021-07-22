@@ -1,4 +1,4 @@
-.formCadastro {
+.form-cadastro-master {
     width: 80%;
     min-width: 650px;
     min-height: 450px;
@@ -14,38 +14,33 @@
     box-shadow: 10px 10px 17px 1px rgba(115, 115, 115, 1);
 }
 
-.header {
+.header-cadastro-master {
     width: 100%;
     background-color: aquamarine;
     border-radius: 5px 5px 0 0;
     padding: 1rem;
 }
 
-.cadastro1 {
+.corpo-cadastro-master1 {
     max-width: 400px;
-    margin: 2rem;
+    margin: 1rem;
 }
-.cadastro2 {
+.corpo-cadastro-master2 {
     max-width: 400px;
-    margin: 2rem;
+    margin: 1rem;
 }
 
-.logoLogin {
-    width: 60px;
-}
-
-h3 {
-    margin: 10px auto;
-}
-
-div {
-    text-align: left;
-    display: block;
+.botoes-cadastro-master {
+    margin: 0 2.2rem;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     width: 100%;
-    font-weight: bold;
+    height: auto;
 }
 
-.btn {
+.botoes-cadastro-master .btn {
     width: 190px;
     font-size: 1rem;
     padding: 5px;
@@ -53,9 +48,4 @@ div {
     cursor: pointer;
     margin: 20px 10px;
 }
-
-p {
-    font-size: 0.9rem;
-}
-
 

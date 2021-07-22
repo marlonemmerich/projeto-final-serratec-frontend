@@ -94,12 +94,12 @@ function CadastroMedico() {
 
   return (
     <div className="container py-1">
-        <form className="formCadastro" onSubmit={efetuarCadastro}>
-          <div className="header mb-3 bg-primary text-white">
+        <form className="form-cadastro-medico" onSubmit={efetuarCadastro}>
+          <div className="header-cadastro-medico mb-3 bg-primary text-white">
             <h5 className="mb-0">Cadastro de médico</h5>
           </div>
           <div className=" d-flex flex-row flex-wrap justify-content-around">
-            <div className="cadastro1">
+            <div className="corpo-cadastro-medico1">
               <div>
                 <label className="mb-2">Nome</label>
                 <input
@@ -108,7 +108,7 @@ function CadastroMedico() {
                   type="text"
                   value={nome}
                   onChange={(evento) => setNome(evento.target.value)}
-                  placeholder="Digite seu nome completo"
+                  placeholder="Digite o nome completo"
                 />
               </div>
               <div>
@@ -119,7 +119,7 @@ function CadastroMedico() {
                   type="email"
                   value={email}
                   onChange={(evento) => setEmail(evento.target.value)}
-                  placeholder="Digite seu email"
+                  placeholder="Digite o email"
                 />
               </div>
               <div>
@@ -130,7 +130,7 @@ function CadastroMedico() {
                   type="text"
                   value={userName}
                   onChange={(evento) => setUserName(evento.target.value)}
-                  placeholder="Digite seu nome de usuário"
+                  placeholder="Digite o nome de usuário"
                 />
               </div>
               <div>
@@ -141,7 +141,7 @@ function CadastroMedico() {
                   type="password"
                   value={senha}
                   onChange={(evento) => setSenha(evento.target.value)}
-                  placeholder="Crie uma senha de 8 a 15 digitos"
+                  placeholder="Crie uma senha"
                 />
               </div>
               <div>
@@ -189,7 +189,7 @@ function CadastroMedico() {
                 />
               </div>
             </div>
-            <div className="cadastro2">
+            <div className="corpo-cadastro-medico2">
               <div>
                 <label className="mb-2">Cep</label>
                 <input
@@ -220,7 +220,7 @@ function CadastroMedico() {
                   type="number"
                   value={numero}
                   onChange={(evento) => setNumero(evento.target.value)}
-                  placeholder="Digite o número da sua residência"
+                  placeholder="Digite o número da residência"
                 />
               </div>
               <div>
@@ -254,9 +254,9 @@ function CadastroMedico() {
                 />
               </div>
             </div>
-            <div className="px-4 ms-4 mb-3">
+            <div className="botoes-cadastro-medico">
               <button className="btn btn-primary">Cadastrar</button>
-              <Link to="/" className="btn btn-danger">Cancelar</Link>
+              <Link to="/home" className="btn btn-danger">Cancelar</Link>
             </div>
           </div>
         </form>
