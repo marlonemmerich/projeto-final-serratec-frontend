@@ -5,6 +5,8 @@ import CadastrarUsuario from './pages/CadastrarUsuario';
 import CadastrarMedico from './pages/CadastrarMedico';
 import CadastrarColaborador from './pages/CadastrarColaborador';
 import CadastrarMaster from './pages/CadastrarMaster';
+import CadastrarPaciente from './pages/CadastrarPaciente';
+import CadastrarProcedimento from './pages/CadastrarProcedimento';
 import Login from './pages/Login';
 import Home from './pages/Home';
 import Consulta from './pages/Consulta';
@@ -25,6 +27,8 @@ function App() {
           <Route path="/cadastrar-master" component={CadastrarMaster} />
           <Route path="/consulta" component={Consulta} />
           <Route path="/resultado-consulta" component={ResultadoConsulta} />
+          <Route path="/cadastrar-paciente" component={CadastrarPaciente} />
+          <Route path="/cadastrar-procedimento" component={CadastrarProcedimento} />
         </>
       </Switch>
     </BrowserRouter>
