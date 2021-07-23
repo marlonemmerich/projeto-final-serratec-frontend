@@ -1,0 +1,82 @@
+.menu-lateral {
+    width: 3.5rem;
+    min-height: 88vh;
+    background-color: #003F63;
+    position: absolute;
+    top: 12vh;
+    overflow: hidden;
+    z-index: 1;
+    transition: ease-out .2s;
+}
+
+.menu-lateral ul {
+    padding: 0;
+    width: 100%;
+}
+
+.menu-lateral li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    padding: .8rem;
+    position: relative;
+    width: 200px;
+    cursor: pointer;
+}
+
+.menu-lateral li:hover {
+    background-color: #3A6EFD;
+}
+
+.botao-menu {
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    background-color: #003F63;
+    position: absolute;
+    left: 25px;
+    top: 50vh;
+    z-index: 0;
+    border-radius: 50%;
+    color: #fff;
+    transition: ease-out .2s;
+    transition-duration: .2s;
+}
+
+.botao-menu > i {
+    position: absolute;
+    left: 60%;
+    top: 25%;
+    transform: rotate(0deg);
+    transition-duration: .2s;
+}
+
+.expandir {
+    width: 200px;
+    transition: ease-in .2s;
+}
+
+.expandir-botao {
+    left: 171px;
+    transition: ease-in .2s;
+}
+
+.expandir-botao > i {
+    transform: rotate(180deg);
+    transition-duration: .3s;
+    left: 55%;
+    top: 22%;
+}
+
+.icones {
+    width: 40px;
+    text-align: center;
+    padding-left: 0;
+}
+
+.texto-menu {
+    width: 160px;
+    margin-left: 15%;
+    font-size: .8rem;
+    color: #fff;
+}

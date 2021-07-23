@@ -11,6 +11,7 @@ import Login from './pages/Login';
 import Home from './pages/Home';
 import ConsultarPaciente from './pages/ConsultarPaciente';
 import ResultadoConsulta from './pages/ResultadoConsulta';
+import MenuLateral from './components/MenuLateral';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Header />
           <Route path="/home" component={Home} />
           <>
+            <MenuLateral />
             <Route path="/cadastrar-usuario" component={CadastrarUsuario} />
             <Route path="/cadastrar-medico" component={CadastrarMedico} />
             <Route path="/cadastrar-colaborador" component={CadastrarColaborador} />
