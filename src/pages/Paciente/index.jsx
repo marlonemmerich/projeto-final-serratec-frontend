@@ -1,16 +1,21 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import ModalConsultar from "../../components/ModalConsultar";
 import axios from "axios";
 import "./style.css";
+import { GlobalContext } from "../../providers/Context";
 
 function Paciente() {
-  const [nome, setNome] = useState("");
-  const [email, setEmail] = useState("");
-  const [cpf, setCpf] = useState("");
-  const [rg, setRg] = useState("");
-  const [telefone, setTelefone] = useState("");
-  const [dataNascimento, setDataNascimento] = useState("");
+  const context = useContext(GlobalContext);
+  const { paciente } = context;
+
+  const [readOnly, setReadOnly] = useState(true);
+
+  const [nome, setNome] = useState(paciente.nome);
+  const [email, setEmail] = useState(paciente.email);
+  const [cpf, setCpf] = useState(paciente.cpf);
+  const [rg, setRg] = useState(paciente.rg);
+  const [telefone, setTelefone] = useState(paciente.telefone);
+  const [dataNascimento, setDataNascimento] = useState(paciente.dataNascimento);
   const [cep, setCep] = useState("");
   const [rua, setRua] = useState("");
   const [numero, setNumero] = useState("");
@@ -41,10 +46,6 @@ function Paciente() {
         }
       })
       .catch();
-  };
-
-  const ativarModal = () => {
-    `#pacientes`.modal("show");
   };
 
   const editarCadastro = (evento) => {
@@ -91,21 +92,24 @@ function Paciente() {
 
   return (
     <>
-      <div
-        className="container p-0"
-        data-bs-toggle="modal"
-        data-bs-target="#pacientes"
-        onLoad={ativarModal}
-      >
+      <div className="container p-0">
         <form className="form-cadastro-paciente" onSubmit={editarCadastro}>
           <div className="header-cadastro-paciente mb-3 bg-primary text-white">
             <h5 className="mb-0">Consulta de paciente</h5>
+            <i
+              className="fas fa-edit text-white fs-3 icone-cadastro-paciente"
+              data-bs-toggle="tooltip"
+              data-bs-placement="bottom"
+              title="Editar cadastro"
+              onClick={() => readOnly ? setReadOnly(false) : setReadOnly(true)}
+            ></i>
           </div>
           <div className=" d-flex flex-row flex-wrap justify-content-around">
             <div className="corpo-cadastro-paciente1">
               <div>
                 <label className="mb-2">Nome</label>
                 <input
+                  readOnly={readOnly}
                   className="form-control py-1 px-4"
                   required
                   type="text"
@@ -117,6 +121,7 @@ function Paciente() {
               <div>
                 <label className="mb-2">Email</label>
                 <input
+                  readOnly={readOnly}
                   className="form-control py-1 px-4"
                   required
                   type="email"
@@ -128,6 +133,7 @@ function Paciente() {
               <div>
                 <label className="mb-2">CPF</label>
                 <input
+                  readOnly={readOnly}
                   className="form-control py-1 px-4"
                   required
                   type="number"
@@ -139,6 +145,7 @@ function Paciente() {
               <div>
                 <label className="mb-2">RG</label>
                 <input
+                  readOnly={readOnly}
                   className="form-control py-1 px-4"
                   required
                   type="number"
@@ -150,6 +157,7 @@ function Paciente() {
               <div>
                 <label className="mb-2">Telefone</label>
                 <input
+                  readOnly={readOnly}
                   className="form-control py-1 px-4"
                   required
                   type="number"
@@ -161,6 +169,7 @@ function Paciente() {
               <div>
                 <label className="mb-2">Data de Nascimento</label>
                 <input
+                  readOnly={readOnly}
                   className="form-control py-1 px-4"
                   required
                   type="data"
@@ -174,6 +183,7 @@ function Paciente() {
               <div>
                 <label className="mb-2">Cep</label>
                 <input
+                  readOnly={readOnly}
                   className="form-control py-1 px-4"
                   required
                   type="number"
@@ -186,6 +196,7 @@ function Paciente() {
               <div>
                 <label className="mb-2">Rua</label>
                 <input
+                  readOnly={readOnly}
                   className="form-control py-1 px-4"
                   required
                   type="text"
@@ -196,6 +207,7 @@ function Paciente() {
               <div>
                 <label className="mb-2">Número da Residência</label>
                 <input
+                  readOnly={readOnly}
                   className="form-control py-1 px-4"
                   required
                   type="number"
@@ -207,6 +219,7 @@ function Paciente() {
               <div>
                 <label className="mb-2">Bairro</label>
                 <input
+                  readOnly={readOnly}
                   className="form-control py-1 px-4"
                   required
                   type="text"
@@ -217,6 +230,7 @@ function Paciente() {
               <div>
                 <label className="mb-2">Cidade</label>
                 <input
+                  readOnly={readOnly}
                   className="form-control py-1 px-4"
                   required
                   type="text"
@@ -227,6 +241,7 @@ function Paciente() {
               <div>
                 <label className="mb-2">Estado</label>
                 <input
+                  readOnly={readOnly}
                   className="form-control py-1 px-4"
                   required
                   type="text"
@@ -236,20 +251,14 @@ function Paciente() {
               </div>
             </div>
             <div className="botoes-cadastro-paciente">
-              <button className="btn btn-primary">Cadastrar</button>
-              <Link to="/home" className="btn btn-danger">
-                Cancelar
+              <button className="btn btn-primary">Salvar</button>
+              <Link to="/home" className="btn btn-outline-primary">
+                Gerar recibo
               </Link>
             </div>
           </div>
         </form>
       </div>
-      <ModalConsultar
-        id="pacientes"
-        titulo="Consulta de paciente"
-        // consultar={consultar}
-      />
-
     </>
   );
 }

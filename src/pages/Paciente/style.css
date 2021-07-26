@@ -1,0 +1,8 @@
+.header-cadastro-paciente {
+  display: flex;
+  justify-content: space-between;
+}
+
+.icone-cadastro-paciente {
+  cursor: pointer;
+}
