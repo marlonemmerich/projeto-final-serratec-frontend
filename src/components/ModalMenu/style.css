@@ -1,0 +1,9 @@
+.modal-menu {
+  height: 150px;
+  text-align: center;
+  padding: 3rem;
+}
+
+.modal-menu button {
+  width: 150px;
+}

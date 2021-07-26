@@ -26,7 +26,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 60%;
+    min-width: 60%;
 }
 
 .botoes-cadastro-procedimentos {

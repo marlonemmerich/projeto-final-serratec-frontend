@@ -22,11 +22,11 @@
 }
 
 .corpo-cadastro-colaborador1 {
-    max-width: 400px;
+    min-width: 400px;
     margin: 1rem;
 }
 .corpo-cadastro-colaborador2 {
-    max-width: 400px;
+    min-width: 400px;
     margin: 1rem;
 }
 

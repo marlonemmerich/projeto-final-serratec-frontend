@@ -1,10 +1,13 @@
 import { useState } from "react";
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import axios from "axios";
 
 import "./style.css";
 
 function CadastroColaborador() {
+
+  const history = useHistory();
+
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [userName, setUserName] = useState("");
@@ -240,7 +243,7 @@ function CadastroColaborador() {
             </div>
             <div className="botoes-cadastro-colaborador mb-5">
               <button className="btn btn-primary">Cadastrar</button>
-              <Link to="/home" className="btn btn-danger btn-cadastro-colaborador">Cancelar</Link>
+              <button className="btn btn-danger btn-cadastro-colaborador" onClick={() => history.goBack()}>Cancelar</button>
             </div>
           </div>
         </form>

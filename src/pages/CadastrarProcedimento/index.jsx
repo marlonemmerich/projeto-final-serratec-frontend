@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 import "./style.css";
@@ -8,6 +8,8 @@ function CadastroProcedimento() {
   const [codigo, setCodigo] = useState("");
   const [tipoProcedimento, setProcedimento] = useState("");
   const [honorario, setHonorario] = useState("");
+
+  const history = useHistory();
 
   const efetuarCadastro = (evento) => {
     evento.preventDefault();
@@ -18,7 +20,7 @@ function CadastroProcedimento() {
     };
     axios
       .post("http://localhost:8080/api/procedimentos/", procedimento)
-      .then(response => {
+      .then((response) => {
         alert(`Procedimento ${procedimento} cadastrado com sucesso!`);
         setCodigo("");
         setProcedimento("");
@@ -36,9 +38,9 @@ function CadastroProcedimento() {
         <div className="header-cadastro-procedimentos bg-primary text-white m-0">
           <h5 className="mb-0">Cadastro de procedimentos</h5>
         </div>
-        <div className=" d-flex flex-row flex-wrap justify-content-around">
-          <div className="corpo-cadastro-procedimentos">
-            <div>
+        <div className=" d-flex flex-row flex-wrap justify-content-center">
+          <div className="corpo-cadastro-procedimentos w-100">
+            <div className="w-75">
               <label className="mb-2">Código</label>
               <input
                 className="form-control py-1 px-4"
@@ -49,7 +51,7 @@ function CadastroProcedimento() {
                 placeholder="Código Interno"
               />
             </div>
-            <div>
+            <div className="w-75">
               <label className="mb-2">Procedimento</label>
               <input
                 className="form-control py-1 px-4"
@@ -59,7 +61,7 @@ function CadastroProcedimento() {
                 onChange={(evento) => setProcedimento(evento.target.value)}
               />
             </div>
-            <div>
+            <div className="w-75">
               <label className="mb-2">Honorários</label>
               <input
                 className="form-control py-1 px-4"
@@ -72,9 +74,9 @@ function CadastroProcedimento() {
           </div>
           <div className="botoes-cadastro-procedimentos mb-4">
             <button className="btn btn-primary">Cadastrar</button>
-            <Link to="/home" className="btn btn-danger">
+            <button className="btn btn-danger" onClick={() => history.goBack()}>
               Cancelar
-            </Link>
+            </button>
           </div>
         </div>
       </form>

@@ -14,9 +14,6 @@ function Home() {
             <Link to="/cadastrar-paciente" className="btn btn-primary btn-card-home">
               Cadastrar
             </Link>
-            <Link to="/editar-paciente" className="btn btn-primary btn-card-home">
-              Editar
-            </Link>
             <Link to="/consultar-paciente" className="btn btn-primary btn-card-home">
               Consultar
             </Link>
@@ -39,11 +36,8 @@ function Home() {
             >
               Cadastrar
             </Link>
-            <Link to="/editar-procedimento" className="btn btn-primary btn-card-home">
-              Editar
-            </Link>
             <Link
-              to="/consultar-procedimento"
+              to="/procedimento"
               className="btn btn-primary btn-card-home"
             >
               Consultar
@@ -91,9 +85,6 @@ function Home() {
           <div className="corpo-card-home">
             <Link to="/cadastrar-usuario" className="btn btn-primary btn-card-home">
               Cadastrar
-            </Link>
-            <Link to="/editar-usuario" className="btn btn-primary btn-card-home">
-              Editar
             </Link>
             <Link to="/consultar-usuario" className="btn btn-primary btn-card-home">
               Consultar
