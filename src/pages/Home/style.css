@@ -68,3 +68,24 @@
     transition: ease-in .2s;
     z-index: 9;
 }
+
+.modal-footer {
+justify-content: center;
+
+}
+
+.modal-content {
+    border-radius: 5px;
+    -webkit-box-shadow: 10px 10px 17px 1px rgba(115, 115, 115, 1);
+    -moz-box-shadow: 10px 10px 17px 1px rgba(115, 115, 115, 1);
+    box-shadow: 10px 10px 17px 1px rgba(115, 115, 115, 1);
+}
+
+
+
+
+
+
+
+
+

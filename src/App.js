@@ -12,6 +12,7 @@ import Home from './pages/Home';
 import ConsultarPaciente from './pages/ConsultarPaciente';
 import ResultadoConsulta from './pages/ResultadoConsulta';
 import MenuLateral from './components/MenuLateral';
+import PaginaErro from './pages/PaginaErro';
 
 
 function App() {
@@ -32,6 +33,8 @@ function App() {
             <Route path="/consultar-paciente" component={ConsultarPaciente} />
             <Route path="/resultado-consulta" component={ResultadoConsulta} />
             <Route path="/cadastrar-procedimento" component={CadastrarProcedimento} />
+            <Route component={PaginaErro} />
+            
           </>
         </>
       </Switch>
