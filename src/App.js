@@ -10,9 +10,15 @@ import Paciente from "./pages/Paciente";
 import CadastrarProcedimento from "./pages/CadastrarProcedimento";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
-import ConsultarPaciente from "./pages/ConsultarPaciente";
+import BuscarPaciente from "./pages/BuscarPaciente";
 import MenuLateral from "./components/MenuLateral";
 import { GlobalProvider } from "./providers/Context";
+import PaginaErro from "./pages/PaginaErro";
+import BuscarColaborador from "./pages/BuscarColaborador";
+import BuscarUsuario from "./pages/BuscarUsuario";
+import Colaborador from "./pages/Colaborador";
+import BuscarMaster from "./pages/BuscarMaster";
+import Master from './pages/Master';
 
 function App() {
   return (
@@ -42,13 +48,25 @@ function App() {
               component={CadastrarMaster}
             />
             <Route path="/cadastrar-paciente" component={CadastrarPaciente} />
-            <Route path="/consultar-paciente" component={ConsultarPaciente} />
+            <Route exact path="/buscar-usuario" component={BuscarUsuario} />
+            <Route
+              exact
+              path="/buscar-usuario/buscar-colaborador"
+              component={BuscarColaborador}
+            />
+            <Route
+              path="/buscar-usuario/buscar-colaborador/colaborador"
+              component={Colaborador}
+            />
+            <Route exact path="/buscar-usuario/buscar-master" component={BuscarMaster} />
+            <Route path="/buscar-usuario/buscar-master/master" component={Master} />
+            <Route path="/buscar-paciente" component={BuscarPaciente} />
             <Route path="/paciente" component={Paciente} />
             <Route
               path="/cadastrar-procedimento"
               component={CadastrarProcedimento}
             />
-            
+            <Route component={PaginaErro} />
           </>
         </Switch>
       </BrowserRouter>

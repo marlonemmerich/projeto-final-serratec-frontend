@@ -60,7 +60,7 @@ function MenuLateral() {
             id="pacientes"
             titulo="Pacientes"
             rotaCadastrar="cadastrar-paciente"
-            rotaConsultar="consultar-paciente"
+            rotaConsultar="buscar-paciente"
           />
           <ModalMenu 
             id="procedimentos"
@@ -72,7 +72,7 @@ function MenuLateral() {
             id="usuarios"
             titulo="Usuários"
             rotaCadastrar="cadastrar-usuario"
-            rotaConsultar="usuario"
+            rotaConsultar="buscar-usuario"
           />
         </>
       );

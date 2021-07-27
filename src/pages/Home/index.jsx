@@ -18,7 +18,7 @@ function Home() {
               Cadastrar
             </Link>
             <Link
-              to="/consultar-paciente"
+              to="/buscar-paciente"
               className="btn btn-primary btn-card-home"
             >
               Consultar
@@ -96,7 +96,7 @@ function Home() {
               Cadastrar
             </Link>
             <Link
-              to="/consultar-usuario"
+              to="/buscar-usuario"
               className="btn btn-primary btn-card-home"
             >
               Consultar

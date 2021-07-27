@@ -10,10 +10,10 @@ function Paciente() {
 
   const [readOnly, setReadOnly] = useState(true);
 
+  const id = paciente.id;
   const [nome, setNome] = useState(paciente.nome);
   const [email, setEmail] = useState(paciente.email);
   const [cpf, setCpf] = useState(paciente.cpf);
-  const [rg, setRg] = useState(paciente.rg);
   const [telefone, setTelefone] = useState(paciente.telefone);
   const [dataNascimento, setDataNascimento] = useState(paciente.dataNascimento);
   const [cep, setCep] = useState("");
@@ -50,11 +50,12 @@ function Paciente() {
 
   const editarCadastro = (evento) => {
     evento.preventDefault();
+    setReadOnly(true);
     const paciente = {
+      id: id,
       nome: nome,
       email: email,
       cpf: cpf,
-      rg: rg,
       telefone: telefone,
       dataNascimento: dataNascimento,
       endereco: {
@@ -68,13 +69,12 @@ function Paciente() {
     };
 
     axios
-      .post("paciente", paciente)
+      .put(`http://localhost:8080/api/pacientes/${id}`, paciente)
       .then((response) => {
-        alert(`Paciente ${nome} cadastrado com sucesso!`);
+        alert(`Cadastro do paciente ${nome} alterado com sucesso!`);
         setNome("");
         setEmail("");
         setCpf("");
-        setRg("");
         setTelefone("");
         setDataNascimento("");
         setCep("");
@@ -140,18 +140,6 @@ function Paciente() {
                   value={cpf}
                   onChange={cpfHandle}
                   placeholder="Apenas os 11 digitos"
-                />
-              </div>
-              <div>
-                <label className="mb-2">RG</label>
-                <input
-                  readOnly={readOnly}
-                  className="form-control py-1 px-4"
-                  required
-                  type="number"
-                  value={rg}
-                  onChange={(evento) => setRg(evento.target.value)}
-                  placeholder="Apenas 9 digitos"
                 />
               </div>
               <div>
@@ -251,7 +239,7 @@ function Paciente() {
               </div>
             </div>
             <div className="botoes-cadastro-paciente">
-              <button className="btn btn-primary">Salvar</button>
+              {!readOnly && <button className="btn btn-primary">Salvar</button>}
               <Link to="/home" className="btn btn-outline-primary">
                 Gerar recibo
               </Link>

@@ -4,30 +4,34 @@ import { Link } from "react-router-dom";
 import { GlobalContext } from "../../providers/Context";
 import "./style.css";
 
-function ConsultarPaciente() {
+function BuscarPaciente() {
   const context = useContext(GlobalContext);
 
   const [nome, setNome] = useState("");
   const [pacientes, setPacientes] = useState([]);
+  const [pacienteNaoEncontrado, setPacienteNaoEncontrado] = useState("")
 
   const pesquisarPaciente = (ev) => {
     ev.preventDefault();
-
+    setPacienteNaoEncontrado("");
+    setPacientes([]);
     axios
       .get(`http://localhost:8080/api/pacientes/nome/${nome}`)
       .then((response) => {
         setPacientes(response.data);
         setNome("");
-        console.log(context);
+        console.log(pacientes);
       })
-      .catch((error) => console.error(error));
+      .catch((response) => {
+        if (response.request.status === 404) setPacienteNaoEncontrado("Paciente não encontrado.")
+      });
   };
 
   return (
     <div>
       <form className="form-consultar-paciente" onSubmit={pesquisarPaciente}>
         <div className="header-consultar-paciente mb-3 bg-primary text-white">
-          <h5 className="mb-0">Consulta de paciente</h5>
+          <h5 className="mb-0">Buscar paciente</h5>
         </div>
         <div className="d-flex flex-row flex-wrap justify-content-between">
           <div className="corpo-consultar-paciente">
@@ -50,6 +54,7 @@ function ConsultarPaciente() {
         <hr />
         <div className="resultado-pesquisa">
           <h6 className="titulo-resultado-pesquisa">{`Pacientes encontrados: ${pacientes.length}`}</h6>
+            {pacienteNaoEncontrado}
           <ul>
             {pacientes.map((paciente) => (
               <Link to={`/paciente`} className="paciente-consulta" key={paciente.id}>                
@@ -67,4 +72,4 @@ function ConsultarPaciente() {
   );
 }
 
-export default ConsultarPaciente;
+export default BuscarPaciente;

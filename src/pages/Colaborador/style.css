@@ -1,0 +1,8 @@
+.header-consultar-colaborador {
+  display: flex;
+  justify-content: space-between;
+}
+
+.icone-consultar-colaborador {
+  cursor: pointer;
+}

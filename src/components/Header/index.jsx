@@ -16,7 +16,7 @@ function Header() {
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-            <em>Bem vindo,</em>  Fulano
+            <em>Bem vindo,</em><span className="ms-2">Fulano</span>
             <i className="fas fa-user-circle iconeUsuario"></i>
           </button>
           <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">

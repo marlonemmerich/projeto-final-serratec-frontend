@@ -8,7 +8,6 @@ function CadastroPaciente() {
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [cpf, setCpf] = useState("");
-  const [rg, setRg] = useState("");
   const [telefone, setTelefone] = useState("");
   const [dataNascimento, setDataNascimento] = useState("");
   const [cep, setCep] = useState("");
@@ -49,16 +48,15 @@ function CadastroPaciente() {
       nome: nome,
       email: email,
       cpf: cpf,
-      rg: rg,
       telefone: telefone,
       dataNascimento: dataNascimento,
       endereco: {
         cep: cep,
-        rua: rua,
-        numeroResidencia: numero,
+        logradouro: rua,
+        numero: numero,
         bairro: bairro,
         cidade: cidade,
-        estado: estado,
+        uf: estado,
       },
     };
 
@@ -69,7 +67,6 @@ function CadastroPaciente() {
         setNome("");
         setEmail("");
         setCpf("");
-        setRg("");
         setTelefone("");
         setDataNascimento("");
         setCep("");
@@ -124,17 +121,6 @@ function CadastroPaciente() {
               value={cpf}
               onChange={cpfHandle}
               placeholder="Apenas os 11 digitos"
-            />
-           </div>
-           <div>
-             <label className="mb-2">RG</label>
-             <input
-              className="form-control py-1 px-4"
-              required
-              type="number"
-              value={rg}
-              onChange={(evento) => setRg(evento.target.value)}
-              placeholder="Apenas 9 digitos"
             />
            </div>
            <div>

@@ -68,7 +68,7 @@ function CadastroColaborador() {
     };
 
     axios
-      .post("http://localhost:8080/api/usuarios", usuario)
+      .post("http://localhost:8080/api/secretarias", usuario)
       .then((response) => {
         //localStorage.setItem("token", response.data.access_token);
         alert(`Usuário ${nome} cadastrado com sucesso!`);
@@ -123,7 +123,7 @@ function CadastroColaborador() {
                 />
               </div>
               <div>
-                <label className="mb-2">Username</label>
+                <label className="mb-2">Usuário</label>
                 <input
                   className="form-control py-1 px-4"
                   required

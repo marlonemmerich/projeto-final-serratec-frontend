@@ -1,20 +1,21 @@
-import { useState } from "react";
-import { useHistory } from 'react-router-dom';
+import { useState, useContext } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
-
 import "./style.css";
+import { GlobalContext } from "../../providers/Context";
 
-function CadastroMaster() {
+function Colaborador() {
+  const context = useContext(GlobalContext);
+  const { colaborador } = context;
 
-  const history = useHistory();
+  const [readOnly, setReadOnly] = useState(true);
 
-  const [nome, setNome] = useState("");
-  const [email, setEmail] = useState("");
-  const [userName, setUserName] = useState("");
-  const [senha, setSenha] = useState("");
-  const [cpf, setCpf] = useState("");
-  const [telefone, setTelefone] = useState("");
-  const [dataNascimento, setDataNascimento] = useState("");
+  const id = colaborador.id;
+  const [nome, setNome] = useState(colaborador.nome);
+  const [email, setEmail] = useState(colaborador.email);
+  const [cpf, setCpf] = useState(colaborador.cpf);
+  const [telefone, setTelefone] = useState(colaborador.telefone);
+  const [dataNascimento, setDataNascimento] = useState(colaborador.dataNascimento);
   const [cep, setCep] = useState("");
   const [rua, setRua] = useState("");
   const [numero, setNumero] = useState("");
@@ -44,19 +45,16 @@ function CadastroMaster() {
           setEstado(response.data.uf);
         }
       })
-      .catch(error => {
-        console.log("Algo deu errado!");
-        console.error(error)
-      });
+      .catch();
   };
 
-  const efetuarCadastro = (evento) => {
+  const editarCadastro = (evento) => {
     evento.preventDefault();
-    const usuario = {
+    setReadOnly(true);
+    const colaborador = {
+      id: id,
       nome: nome,
       email: email,
-      username: userName,
-      senha: senha,
       cpf: cpf,
       telefone: telefone,
       dataNascimento: dataNascimento,
@@ -71,14 +69,11 @@ function CadastroMaster() {
     };
 
     axios
-      .post("http://localhost:8080/api/usuarios", usuario)
+      .put(`http://localhost:8080/api/secretarias/${id}`, colaborador)
       .then((response) => {
-        //localStorage.setItem("token", response.data.access_token);
-        alert(`Usuário ${nome} cadastrado com sucesso!`);
+        alert(`Cadastro do paciente ${nome} alterado com sucesso!`);
         setNome("");
         setEmail("");
-        setUserName("");
-        setSenha("");
         setCpf("");
         setTelefone("");
         setDataNascimento("");
@@ -89,67 +84,56 @@ function CadastroMaster() {
         setCidade("");
         setEstado("");
       })
-      .catch((error) => {
-        console.log("Algo deu erro");
-        console.error(error);
+      .catch((erro) => {
+        console.log("Hmmm.. Tem algo errado");
+        console.log(erro);
       });
   };
 
   return (
-    <div className="container py-1">
-        <form className="form-cadastro-master" onSubmit={efetuarCadastro}>
-          <div className="header-cadastro-master mb-3 bg-primary text-white">
-            <h5 className="mb-0">Cadastro de usuário master</h5>
+    <>
+      <div className="container p-0">
+        <form className="form-consultar-paciente" onSubmit={editarCadastro}>
+          <div className="header-consultar-colaborador mb-3 bg-primary text-white">
+            <h5 className="mb-0">Consulta de colaborador</h5>
+            <i
+              className="fas fa-edit text-white fs-3 icone-cadastro-paciente"
+              data-bs-toggle="tooltip"
+              data-bs-placement="bottom"
+              title="Editar cadastro"
+              onClick={() => readOnly ? setReadOnly(false) : setReadOnly(true)}
+            ></i>
           </div>
           <div className=" d-flex flex-row flex-wrap justify-content-around">
-            <div className="corpo-cadastro-master1">
+            <div className="corpo-cadastro-paciente1">
               <div>
                 <label className="mb-2">Nome</label>
                 <input
+                  readOnly={readOnly}
                   className="form-control py-1 px-4"
                   required
                   type="text"
                   value={nome}
                   onChange={(evento) => setNome(evento.target.value)}
-                  placeholder="Digite seu nome completo"
+                  placeholder="Digite o nome completo do paciente"
                 />
               </div>
               <div>
                 <label className="mb-2">Email</label>
                 <input
+                  readOnly={readOnly}
                   className="form-control py-1 px-4"
                   required
                   type="email"
                   value={email}
                   onChange={(evento) => setEmail(evento.target.value)}
-                  placeholder="Digite seu email"
-                />
-              </div>
-              <div>
-                <label className="mb-2">Usuário</label>
-                <input
-                  className="form-control py-1 px-4"
-                  required
-                  type="text"
-                  value={userName}
-                  onChange={(evento) => setUserName(evento.target.value)}
-                  placeholder="Digite seu nome de usuário"
-                />
-              </div>
-              <div>
-                <label className="mb-2">Senha</label>
-                <input
-                  className="form-control py-1 px-4"
-                  required
-                  type="password"
-                  value={senha}
-                  onChange={(evento) => setSenha(evento.target.value)}
-                  placeholder="Crie uma senha de 8 a 15 digitos"
+                  placeholder="Digite o email do paciente"
                 />
               </div>
               <div>
                 <label className="mb-2">CPF</label>
                 <input
+                  readOnly={readOnly}
                   className="form-control py-1 px-4"
                   required
                   type="number"
@@ -161,6 +145,7 @@ function CadastroMaster() {
               <div>
                 <label className="mb-2">Telefone</label>
                 <input
+                  readOnly={readOnly}
                   className="form-control py-1 px-4"
                   required
                   type="number"
@@ -172,8 +157,9 @@ function CadastroMaster() {
               <div>
                 <label className="mb-2">Data de Nascimento</label>
                 <input
+                  readOnly={readOnly}
                   className="form-control py-1 px-4"
-                  
+                  required
                   type="data"
                   value={dataNascimento}
                   onChange={(evento) => setDataNascimento(evento.target.value)}
@@ -181,12 +167,13 @@ function CadastroMaster() {
                 />
               </div>
             </div>
-            <div className="corpo-cadastro-master2">
+            <div className="corpo-cadastro-paciente2">
               <div>
                 <label className="mb-2">Cep</label>
                 <input
+                  readOnly={readOnly}
                   className="form-control py-1 px-4"
-                  
+                  required
                   type="number"
                   value={cep}
                   onBlur={obterCep}
@@ -197,29 +184,32 @@ function CadastroMaster() {
               <div>
                 <label className="mb-2">Rua</label>
                 <input
+                  readOnly={readOnly}
                   className="form-control py-1 px-4"
-                  
+                  required
                   type="text"
                   value={rua}
                   onChange={(evento) => setRua(evento.target.value)}
                 />
               </div>
               <div>
-                <label className="mb-2">Numero Residência</label>
+                <label className="mb-2">Número da Residência</label>
                 <input
+                  readOnly={readOnly}
                   className="form-control py-1 px-4"
-                  
+                  required
                   type="number"
                   value={numero}
                   onChange={(evento) => setNumero(evento.target.value)}
-                  placeholder="Digite o número da sua residência"
+                  placeholder="Digite o número da residência"
                 />
               </div>
               <div>
                 <label className="mb-2">Bairro</label>
                 <input
+                  readOnly={readOnly}
                   className="form-control py-1 px-4"
-                  
+                  required
                   type="text"
                   value={bairro}
                   onChange={(evento) => setBairro(evento.target.value)}
@@ -228,8 +218,9 @@ function CadastroMaster() {
               <div>
                 <label className="mb-2">Cidade</label>
                 <input
+                  readOnly={readOnly}
                   className="form-control py-1 px-4"
-                  
+                  required
                   type="text"
                   value={cidade}
                   onChange={(evento) => setCidade(evento.target.value)}
@@ -238,22 +229,26 @@ function CadastroMaster() {
               <div>
                 <label className="mb-2">Estado</label>
                 <input
+                  readOnly={readOnly}
                   className="form-control py-1 px-4"
-                  
+                  required
                   type="text"
                   value={estado}
                   onChange={(evento) => setEstado(evento.target.value)}
                 />
               </div>
             </div>
-            <div className="botoes-cadastro-master mb-4">
-              <button className="btn btn-primary">Cadastrar</button>
-              <button className="btn btn-danger" onClick={() => history.goBack()}>Cancelar</button>
+            <div className="botoes-cadastro-paciente">
+              {!readOnly && <button className="btn btn-primary">Salvar</button>}
+              <Link to="/home" className="btn btn-outline-primary">
+                Gerar recibo
+              </Link>
             </div>
           </div>
         </form>
-    </div>
+      </div>
+    </>
   );
 }
 
-export default CadastroMaster;
+export default Colaborador;
