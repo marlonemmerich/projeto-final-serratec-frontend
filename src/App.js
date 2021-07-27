@@ -13,7 +13,7 @@ import Home from "./pages/Home";
 import ConsultarPaciente from "./pages/ConsultarPaciente";
 import MenuLateral from "./components/MenuLateral";
 import { GlobalProvider } from "./providers/Context";
-import PaginaErro from "./pages/PaginaErro";
+
 function App() {
   return (
     <GlobalProvider>
@@ -48,7 +48,7 @@ function App() {
               path="/cadastrar-procedimento"
               component={CadastrarProcedimento}
             />
-            <Route component={PaginaErro}/>
+            
           </>
         </Switch>
       </BrowserRouter>
