@@ -3,6 +3,7 @@ import "./style.css";
 
 function Home() {
   return (
+<<<<<<< HEAD
     <>
       <div className="container">
         <div className="card-home">
@@ -34,11 +35,28 @@ function Home() {
                 Consultar
               </Link>
             </div>
+=======
+    <div className="container">
+      <div className="card-home">
+        <div className="bg-primary background">
+          <div className="titulo-card-home">
+            <i className="fas fa-id-badge mx-3 fs-2 text-white"></i>
+            <h4 className="text-white">PACIENTES</h4>
+          </div>
+          <div className="corpo-card-home">
+            <Link to="/cadastrar-paciente" className="btn btn-primary btn-card-home">
+              Cadastrar
+            </Link>
+            <Link to="/consultar-paciente" className="btn btn-primary btn-card-home">
+              Consultar
+            </Link>
+>>>>>>> 1e7cea4242f9c102a65f79e48a3971fd47a9b559
           </div>
         </div>
 
         {/* PROCEDIMENTOS */}
 
+<<<<<<< HEAD
         <div className="card-home">
           <div className="bg-primary background">
             <div className="titulo-card-home">
@@ -65,6 +83,27 @@ function Home() {
                 Consultar
               </Link>
             </div>
+=======
+      <div className="card-home">
+        <div className="bg-primary background">
+          <div className="titulo-card-home">
+            <i className="fas fa-syringe mx-3 fs-2 text-white"></i>
+            <h4 className="text-white">PROCEDIMENTOS</h4>
+          </div>
+          <div className="corpo-card-home">
+            <Link
+              to="/cadastrar-procedimento"
+              className="btn btn-primary btn-card-home"
+            >
+              Cadastrar
+            </Link>
+            <Link
+              to="/procedimento"
+              className="btn btn-primary btn-card-home"
+            >
+              Consultar
+            </Link>
+>>>>>>> 1e7cea4242f9c102a65f79e48a3971fd47a9b559
           </div>
         </div>
 
@@ -128,6 +167,7 @@ function Home() {
               </Link>
             </div>
           </div>
+<<<<<<< HEAD
           
         </div>
 
@@ -159,6 +199,15 @@ function Home() {
                 Consultar
               </Link>
             </div>
+=======
+          <div className="corpo-card-home">
+            <Link to="/cadastrar-usuario" className="btn btn-primary btn-card-home">
+              Cadastrar
+            </Link>
+            <Link to="/consultar-usuario" className="btn btn-primary btn-card-home">
+              Consultar
+            </Link>
+>>>>>>> 1e7cea4242f9c102a65f79e48a3971fd47a9b559
           </div>
         </div>
       </div>

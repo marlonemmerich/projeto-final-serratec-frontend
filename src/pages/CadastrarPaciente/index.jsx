@@ -63,7 +63,7 @@ function CadastroPaciente() {
     };
 
     axios
-      .post("paciente", paciente)
+      .post("http://localhost:8080/api/pacientes", paciente)
       .then((response) => {
         alert(`Paciente ${nome} cadastrado com sucesso!`);
         setNome("");

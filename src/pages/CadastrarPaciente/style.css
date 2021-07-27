@@ -23,11 +23,11 @@
 }
 
 .corpo-cadastro-paciente1 {
-    max-width: 400px;
+    min-width: 400px;
     margin: 0 1rem;
 }
 .corpo-cadastro-paciente2 {
-    max-width: 400px;
+    min-width: 400px;
     margin: 0 1rem;
 }
 

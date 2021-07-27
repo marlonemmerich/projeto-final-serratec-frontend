@@ -1,21 +1,21 @@
-import { useState } from "react";
-import { useHistory } from 'react-router-dom';
+import { useState, useContext } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
-
 import "./style.css";
+import { GlobalContext } from "../../providers/Context";
 
-function CadastroMedico() {
+function Paciente() {
+  const context = useContext(GlobalContext);
+  const { paciente } = context;
 
-  const history = useHistory();
+  const [readOnly, setReadOnly] = useState(true);
 
-  const [nome, setNome] = useState("");
-  const [email, setEmail] = useState("");
-  const [userName, setUserName] = useState("");
-  const [senha, setSenha] = useState("");
-  const [cpf, setCpf] = useState("");
-  const [telefone, setTelefone] = useState("");
-  const [dataNascimento, setDataNascimento] = useState("");
-  const [crm, setCrm] = useState("");
+  const [nome, setNome] = useState(paciente.nome);
+  const [email, setEmail] = useState(paciente.email);
+  const [cpf, setCpf] = useState(paciente.cpf);
+  const [rg, setRg] = useState(paciente.rg);
+  const [telefone, setTelefone] = useState(paciente.telefone);
+  const [dataNascimento, setDataNascimento] = useState(paciente.dataNascimento);
   const [cep, setCep] = useState("");
   const [rua, setRua] = useState("");
   const [numero, setNumero] = useState("");
@@ -48,17 +48,15 @@ function CadastroMedico() {
       .catch();
   };
 
-  const efetuarCadastro = (evento) => {
+  const editarCadastro = (evento) => {
     evento.preventDefault();
-    const usuario = {
+    const paciente = {
       nome: nome,
       email: email,
-      username: userName,
-      senha: senha,
       cpf: cpf,
+      rg: rg,
       telefone: telefone,
       dataNascimento: dataNascimento,
-      crm: crm,
       endereco: {
         cep: cep,
         rua: rua,
@@ -70,18 +68,15 @@ function CadastroMedico() {
     };
 
     axios
-      .post("cliente", usuario)
+      .post("paciente", paciente)
       .then((response) => {
-        //localStorage.setItem("token", response.data.access_token);
-        alert(`Usuário ${nome} cadastrado com sucesso!`);
+        alert(`Paciente ${nome} cadastrado com sucesso!`);
         setNome("");
         setEmail("");
-        setUserName("");
-        setSenha("");
         setCpf("");
+        setRg("");
         setTelefone("");
         setDataNascimento("");
-        setCrm("");
         setCep("");
         setRua("");
         setNumero("");
@@ -90,66 +85,55 @@ function CadastroMedico() {
         setEstado("");
       })
       .catch((erro) => {
-        console.log("Algo deu erro");
+        console.log("Hmmm.. Tem algo errado");
         console.log(erro);
       });
   };
 
   return (
-    <div className="container py-1">
-        <form className="form-cadastro-medico" onSubmit={efetuarCadastro}>
-          <div className="header-cadastro-medico mb-3 bg-primary text-white">
-            <h5 className="mb-0">Cadastro de médico</h5>
+    <>
+      <div className="container p-0">
+        <form className="form-cadastro-paciente" onSubmit={editarCadastro}>
+          <div className="header-cadastro-paciente mb-3 bg-primary text-white">
+            <h5 className="mb-0">Consulta de paciente</h5>
+            <i
+              className="fas fa-edit text-white fs-3 icone-cadastro-paciente"
+              data-bs-toggle="tooltip"
+              data-bs-placement="bottom"
+              title="Editar cadastro"
+              onClick={() => readOnly ? setReadOnly(false) : setReadOnly(true)}
+            ></i>
           </div>
           <div className=" d-flex flex-row flex-wrap justify-content-around">
-            <div className="corpo-cadastro-medico1">
+            <div className="corpo-cadastro-paciente1">
               <div>
                 <label className="mb-2">Nome</label>
                 <input
+                  readOnly={readOnly}
                   className="form-control py-1 px-4"
                   required
                   type="text"
                   value={nome}
                   onChange={(evento) => setNome(evento.target.value)}
-                  placeholder="Digite o nome completo"
+                  placeholder="Digite o nome completo do paciente"
                 />
               </div>
               <div>
                 <label className="mb-2">Email</label>
                 <input
+                  readOnly={readOnly}
                   className="form-control py-1 px-4"
                   required
                   type="email"
                   value={email}
                   onChange={(evento) => setEmail(evento.target.value)}
-                  placeholder="Digite o email"
-                />
-              </div>
-              <div>
-                <label className="mb-2">Username</label>
-                <input
-                  className="form-control py-1 px-4"
-                  required
-                  type="text"
-                  value={userName}
-                  onChange={(evento) => setUserName(evento.target.value)}
-                  placeholder="Digite o nome de usuário"
-                />
-              </div>
-              <div>
-                <label className="mb-2">Senha</label>
-                <input
-                  className="form-control py-1 px-4"
-                  required
-                  type="password"
-                  value={senha}
-                  onChange={(evento) => setSenha(evento.target.value)}
-                  placeholder="Crie uma senha"
+                  placeholder="Digite o email do paciente"
                 />
               </div>
               <div>
                 <label className="mb-2">CPF</label>
                 <input
+                  readOnly={readOnly}
                   className="form-control py-1 px-4"
                   required
                   type="number"
@@ -159,8 +143,21 @@ function CadastroMedico() {
                 />
               </div>
               <div>
+                <label className="mb-2">RG</label>
+                <input
+                  readOnly={readOnly}
+                  className="form-control py-1 px-4"
+                  required
+                  type="number"
+                  value={rg}
+                  onChange={(evento) => setRg(evento.target.value)}
+                  placeholder="Apenas 9 digitos"
+                />
+              </div>
+              <div>
                 <label className="mb-2">Telefone</label>
                 <input
+                  readOnly={readOnly}
                   className="form-control py-1 px-4"
                   required
                   type="number"
@@ -172,6 +169,7 @@ function CadastroMedico() {
               <div>
                 <label className="mb-2">Data de Nascimento</label>
                 <input
+                  readOnly={readOnly}
                   className="form-control py-1 px-4"
                   required
                   type="data"
@@ -180,22 +178,12 @@ function CadastroMedico() {
                   placeholder="YYYY-MM-DD"
                 />
               </div>
-              <div>
-                <label className="mb-2">CRM</label>
-                <input
-                  className="form-control py-1 px-4"
-                  required
-                  type="text"
-                  value={crm}
-                  onChange={(evento) => setCrm(evento.target.value)}
-                  placeholder="0000000-0/BR"
-                />
-              </div>
             </div>
-            <div className="corpo-cadastro-medico2">
+            <div className="corpo-cadastro-paciente2">
               <div>
                 <label className="mb-2">Cep</label>
                 <input
+                  readOnly={readOnly}
                   className="form-control py-1 px-4"
                   required
                   type="number"
@@ -208,6 +196,7 @@ function CadastroMedico() {
               <div>
                 <label className="mb-2">Rua</label>
                 <input
+                  readOnly={readOnly}
                   className="form-control py-1 px-4"
                   required
                   type="text"
@@ -216,8 +205,9 @@ function CadastroMedico() {
                 />
               </div>
               <div>
-                <label className="mb-2">Numero Residência</label>
+                <label className="mb-2">Número da Residência</label>
                 <input
+                  readOnly={readOnly}
                   className="form-control py-1 px-4"
                   required
                   type="number"
@@ -229,6 +219,7 @@ function CadastroMedico() {
               <div>
                 <label className="mb-2">Bairro</label>
                 <input
+                  readOnly={readOnly}
                   className="form-control py-1 px-4"
                   required
                   type="text"
@@ -239,6 +230,7 @@ function CadastroMedico() {
               <div>
                 <label className="mb-2">Cidade</label>
                 <input
+                  readOnly={readOnly}
                   className="form-control py-1 px-4"
                   required
                   type="text"
@@ -249,6 +241,7 @@ function CadastroMedico() {
               <div>
                 <label className="mb-2">Estado</label>
                 <input
+                  readOnly={readOnly}
                   className="form-control py-1 px-4"
                   required
                   type="text"
@@ -257,14 +250,17 @@ function CadastroMedico() {
                 />
               </div>
             </div>
-            <div className="botoes-cadastro-medico">
-              <button className="btn btn-primary">Cadastrar</button>
-              <button className="btn btn-danger" onClick={() => history.goBack()}>Cancelar</button>
+            <div className="botoes-cadastro-paciente">
+              <button className="btn btn-primary">Salvar</button>
+              <Link to="/home" className="btn btn-outline-primary">
+                Gerar recibo
+              </Link>
             </div>
           </div>
         </form>
-    </div>
+      </div>
+    </>
   );
 }
 
-export default CadastroMedico;
+export default Paciente;
