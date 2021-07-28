@@ -7,7 +7,6 @@ function Header() {
     <header className="py-3 px-5 mb-2 bg-primary text-white">
       <img src={logo} alt="Logo SerraMed" />
       <div className="usuario">
-       
         <div className="dropdown usuario">
           <button
             className="dropdown-toggle"
@@ -16,7 +15,8 @@ function Header() {
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-            <em>Bem vindo,</em><span className="ms-2">Fulano</span>
+            <em>Bem vindo,</em>
+            <span className="ms-2">Fulano</span>
             <i className="fas fa-user-circle iconeUsuario"></i>
           </button>
           <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">

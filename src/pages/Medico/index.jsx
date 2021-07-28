@@ -3,24 +3,24 @@ import axios from "axios";
 import "./style.css";
 import { GlobalContext } from "../../providers/Context";
 
-function Master() {
+function Medico() {
   const context = useContext(GlobalContext);
-  const { master } = context;
+  const { medico } = context;
 
   const [readOnly, setReadOnly] = useState(true);
 
-  const id = master.id;
-  const [nome, setNome] = useState(master.nome);
-  const [email, setEmail] = useState(master.email);
-  const [cpf, setCpf] = useState(master.cpf);
-  const [telefone, setTelefone] = useState(master.telefone);
-  const [dataNascimento, setDataNascimento] = useState(master.dataNascimento);
-  const [cep, setCep] = useState(master.endereco.cep);
-  const [rua, setRua] = useState(master.endereco.logradouro);
-  const [numero, setNumero] = useState(master.endereco.numero);
-  const [bairro, setBairro] = useState(master.endereco.bairro);
-  const [cidade, setCidade] = useState(master.endereco.localidade);
-  const [estado, setEstado] = useState(master.endereco.uf);
+  const id = medico.id;
+  const [nome, setNome] = useState(medico.nome);
+  const [email, setEmail] = useState(medico.email);
+  const [cpf, setCpf] = useState(medico.cpf);
+  const [telefone, setTelefone] = useState(medico.telefone);
+  const [dataNascimento, setDataNascimento] = useState(medico.dataNascimento);
+  const [cep, setCep] = useState(medico.endereco.cep);
+  const [rua, setRua] = useState(medico.endereco.logradouro);
+  const [numero, setNumero] = useState(medico.endereco.numero);
+  const [bairro, setBairro] = useState(medico.endereco.bairro);
+  const [cidade, setCidade] = useState(medico.endereco.localidade);
+  const [estado, setEstado] = useState(medico.endereco.uf);
 
   const cpfHandle = (evento) => {
     if (evento.target.value.length <= 11) setCpf(evento.target.value);
@@ -50,7 +50,7 @@ function Master() {
   const editarCadastro = (evento) => {
     evento.preventDefault();
     setReadOnly(true);
-    const master = {
+    const medico = {
       id: id,
       nome: nome,
       email: email,
@@ -59,18 +59,18 @@ function Master() {
       dataNascimento: dataNascimento,
       endereco: {
         cep: cep,
-        rua: rua,
-        numeroResidencia: numero,
+        logradouro: rua,
+        numero: numero,
         bairro: bairro,
-        cidade: cidade,
-        estado: estado,
+        localidade: cidade,
+        uf: estado,
       },
     };
 
     axios
-      .put(`http://localhost:8080/api/secretarias/${id}`, master)
+      .put(`http://localhost:8080/api/secretarias/${id}`, medico)
       .then((response) => {
-        alert(`Cadastro do paciente ${nome} alterado com sucesso!`);
+        alert(`Cadastro do médico ${nome} alterado com sucesso!`);
       })
       .catch((erro) => {
         console.log("Hmmm.. Tem algo errado");
@@ -81,11 +81,11 @@ function Master() {
   return (
     <>
       <div className="container p-0">
-        <form className="form-consulta-master" onSubmit={editarCadastro}>
-          <div className="header-consulta-master bg-primary text-white">
-            <h5 className="mb-0">Consulta de usuário master</h5>
+        <form className="form-consulta-medico" onSubmit={editarCadastro}>
+          <div className="header-consulta-medico bg-primary text-white">
+            <h5 className="mb-0">Consulta de usuário medico</h5>
             <i
-              className="fas fa-edit text-white fs-3 icone-consultar-master"
+              className="fas fa-edit text-white fs-3 icone-consultar-medico"
               data-bs-toggle="tooltip"
               data-bs-placement="bottom"
               title="Editar cadastro"
@@ -93,7 +93,7 @@ function Master() {
             ></i>
           </div>
           <div className=" d-flex flex-row flex-wrap p-4 mb-2 justify-content-around">
-            <div className="corpo-consulta-master1">
+            <div className="corpo-consulta-medico1">
               <div>
                 <label className="mb-2">Nome</label>
                 <input
@@ -155,7 +155,7 @@ function Master() {
                 />
               </div>
             </div>
-            <div className="corpo-consulta-master2">
+            <div className="corpo-consulta-medico2">
               <div>
                 <label className="mb-2">Cep</label>
                 <input
@@ -226,7 +226,7 @@ function Master() {
                 />
               </div>
             </div>
-            <div className="botoes-consulta-master">
+            <div className="botoes-consulta-medico">
               {!readOnly && <button className="btn btn-primary">Salvar</button>}
             </div>
           </div>
@@ -236,4 +236,4 @@ function Master() {
   );
 }
 
-export default Master;
+export default Medico;

@@ -42,7 +42,7 @@ function Home() {
             >
               Cadastrar
             </Link>
-            <Link to="/procedimento" className="btn btn-primary btn-card-home">
+            <Link to="/buscar-procedimento" className="btn btn-primary btn-card-home">
               Consultar
             </Link>
           </div>
@@ -127,7 +127,7 @@ function Home() {
               Editar
             </Link>
             <Link
-              to="/consultar-paciente"
+              to="/buscar-paciente"
               className="btn btn-primary btn-card-home"
             >
               Consultar

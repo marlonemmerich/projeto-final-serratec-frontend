@@ -70,7 +70,7 @@ function CadastroMedico() {
     };
 
     axios
-      .post("cliente", usuario)
+      .post("http://localhost:8080/api/medicos", usuario)
       .then((response) => {
         //localStorage.setItem("token", response.data.access_token);
         alert(`Usuário ${nome} cadastrado com sucesso!`);
@@ -126,7 +126,7 @@ function CadastroMedico() {
                 />
               </div>
               <div>
-                <label className="mb-2">Username</label>
+                <label className="mb-2">Usuário</label>
                 <input
                   className="form-control py-1 px-4"
                   required

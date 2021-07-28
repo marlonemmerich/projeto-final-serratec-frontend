@@ -1,0 +1,60 @@
+.form-consulta-procedimento {
+  width: 60%;
+  min-width: 500px;
+  min-height: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fcfcfc;
+  margin: 30px auto;
+  border-radius: 5px;
+  -webkit-box-shadow: 10px 10px 17px 1px rgba(115, 115, 115, 1);
+  -moz-box-shadow: 10px 10px 17px 1px rgba(115, 115, 115, 1);
+  box-shadow: 10px 10px 17px 1px rgba(115, 115, 115, 1);
+}
+
+.header-consulta-procedimento {
+  width: 100%;
+  background-color: aquamarine;
+  border-radius: 5px 5px 0 0;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.corpo-consulta-procedimento {
+  min-width: 400px;
+  margin: 1rem;
+}
+
+.botoes-consulta-procedimento {
+  margin: 0 2.2rem;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+}
+
+.botoes-consulta-procedimento .btn {
+  width: 190px;
+  font-size: 1rem;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 20px 10px;
+}
+
+.icone-consultar-procedimento {
+  cursor: pointer;
+}
+
+.header-cadastro-procedimento {
+  display: flex;
+  justify-content: space-between;
+}
+
+.icone-cadastro-procedimento {
+  cursor: pointer;
+}

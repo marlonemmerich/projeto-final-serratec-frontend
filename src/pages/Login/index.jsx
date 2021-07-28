@@ -1,8 +1,8 @@
-import axios from "axios";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import MensagemErro from "./MensagemErro";
 import logo from '../../assets/images/logoLogin.png';
+import http from "../../services/http";
 
 import "./style.css";
 
@@ -23,19 +23,19 @@ function Login() {
         senha: senha
     }
 
-    axios.post('http://localhost:8080/api/login', usuario)
+    http.post('login', usuario)
         .then((response) => {
-            localStorage.setItem("id", response.data.usuario.id);
-            localStorage.setItem("token", response.data.token);
+            const { token, usuario } = response.data
+            localStorage.setItem("id", usuario.id);
+            localStorage.setItem("token", token);
             localStorage.setItem(
-                "userName",
-                response.data.usuario.userName
+                "userName", usuario.username
             );
             history.push("/home");
         })
         .catch(error => { 
             console.error(error)
-            setMensagem("E-mail ou senha incorretos");
+            setMensagem("Usuário ou senha incorretos");
             setTimeout(() => {
                 setMensagem("");
             }, 4000);

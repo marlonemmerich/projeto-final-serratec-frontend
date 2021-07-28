@@ -1,10 +1,14 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 import "./style.css";
+import http from "../../services/http";
 
 function CadastroPaciente() {
+
+  const history = useHistory();
+
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [cpf, setCpf] = useState("");
@@ -60,8 +64,8 @@ function CadastroPaciente() {
       },
     };
 
-    axios
-      .post("http://localhost:8080/api/pacientes", paciente)
+    http
+      .post("pacientes", paciente)
       .then((response) => {
         alert(`Paciente ${nome} cadastrado com sucesso!`);
         setNome("");
@@ -213,7 +217,7 @@ function CadastroPaciente() {
          </div>
          <div className="botoes-cadastro-paciente">
            <button className="btn btn-primary">Cadastrar</button>
-           <Link to="/home" className="btn btn-danger">Cancelar</Link>
+           <button className="btn btn-danger" onClick={() => history.goBack()}>Cancelar</button>
          </div>
        </div>
      </form>

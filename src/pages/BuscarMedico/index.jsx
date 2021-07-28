@@ -4,37 +4,37 @@ import { Link } from "react-router-dom";
 import { GlobalContext } from "../../providers/Context";
 import "./style.css";
 
-function BuscarPaciente() {
+function BuscarMedico() {
   const context = useContext(GlobalContext);
 
   const [nome, setNome] = useState("");
-  const [pacientes, setPacientes] = useState([]);
-  const [pacienteNaoEncontrado, setPacienteNaoEncontrado] = useState("")
+  const [medicos, setMedicos] = useState([]);
+  const [medicoNaoEncontrado, setMedicoNaoEncontrado] = useState("")
 
-  const pesquisarPaciente = (ev) => {
+  const pesquisarMedico = (ev) => {
     ev.preventDefault();
-    setPacienteNaoEncontrado("");
-    setPacientes([]);
+    setMedicoNaoEncontrado("");
+    setMedicos([]);
     axios
-      .get(`http://localhost:8080/api/pacientes/nome/${nome}`)
+      .get(`http://localhost:8080/api/medicos/nome/${nome}`)
       .then((response) => {
-        setPacientes(response.data);
+        setMedicos(response.data);
         setNome("");
-        console.log(pacientes);
+        console.log(medicos);
       })
       .catch((response) => {
-        if (response.request.status === 404) setPacienteNaoEncontrado("Paciente não encontrado.")
+        if (response.request.status === 404) setMedicoNaoEncontrado("Médico não encontrado.")
       });
   };
 
   return (
     <div>
-      <form className="form-consultar-paciente" onSubmit={pesquisarPaciente}>
-        <div className="header-consultar-paciente mb-3 bg-primary text-white">
-          <h5 className="mb-0">Consulta de paciente</h5>
+      <form className="form-consultar-medico" onSubmit={pesquisarMedico}>
+        <div className="header-consultar-medico mb-3 bg-primary text-white">
+          <h5 className="mb-0">Consulta de medico</h5>
         </div>
         <div className="d-flex flex-row flex-wrap justify-content-between">
-          <div className="corpo-consultar-paciente">
+          <div className="corpo-consultar-medico">
             <div className="w-75">
               <label className="mb-2">Nome</label>
               <input
@@ -43,25 +43,25 @@ function BuscarPaciente() {
                 type="text"
                 value={nome}
                 onChange={(evento) => setNome(evento.target.value)}
-                placeholder="Digite o nome completo do paciente"
+                placeholder="Digite o nome completo do medico"
               />
             </div>
-            <button className="btn btn-primary botao-consultar-paciente">
+            <button className="btn btn-primary botao-consultar-medico">
               Consultar
             </button>
           </div>
         </div>
         <hr />
         <div className="resultado-pesquisa">
-          <h6 className="titulo-resultado-pesquisa">{`Pacientes encontrados: ${pacientes.length}`}</h6>
-            {pacienteNaoEncontrado}
+          <h6 className="titulo-resultado-pesquisa">{`Médicos encontrados: ${medicos.length}`}</h6>
+            {medicoNaoEncontrado}
           <ul>
-            {pacientes.map((paciente) => (
-              <Link to={`/paciente`} className="paciente-consulta" key={paciente.id}>                
+            {medicos.map((medico) => (
+              <Link to={`/buscar-usuario/buscar-medico/medico`} className="medico-consulta" key={medico.id}>                
                 <li
-                  onClick={() => context.setPaciente(paciente)}
+                  onClick={() => context.setMedico(medico)}
                 >
-                  {paciente.nome}
+                  {medico.nome}
                 </li>
               </Link>
             ))}
@@ -72,4 +72,4 @@ function BuscarPaciente() {
   );
 }
 
-export default BuscarPaciente;
+export default BuscarMedico;

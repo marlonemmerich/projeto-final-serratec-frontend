@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
-import axios from "axios";
+import http from "../../services/http";
 
 import "./style.css";
 
 function CadastroProcedimento() {
-  const [codigo, setCodigo] = useState("");
   const [tipoProcedimento, setProcedimento] = useState("");
+  const [descricaoProcedimento, setDescricaoProcedimento] = useState("");
   const [honorario, setHonorario] = useState("");
 
   const history = useHistory();
@@ -14,16 +14,16 @@ function CadastroProcedimento() {
   const efetuarCadastro = (evento) => {
     evento.preventDefault();
     const procedimento = {
-      codigo: codigo,
-      procedimento: tipoProcedimento,
-      honorario: honorario,
+      nomeProcedimento: tipoProcedimento,
+      descricao: descricaoProcedimento,
+      valor: honorario,
     };
-    axios
-      .post("http://localhost:8080/api/procedimentos/", procedimento)
+    http
+      .post("procedimentos/", procedimento)
       .then((response) => {
-        alert(`Procedimento ${procedimento} cadastrado com sucesso!`);
-        setCodigo("");
+        alert(`Procedimento ${tipoProcedimento} cadastrado com sucesso!`);
         setProcedimento("");
+        setDescricaoProcedimento("");
         setHonorario("");
       })
       .catch((erro) => {
@@ -41,17 +41,6 @@ function CadastroProcedimento() {
         <div className=" d-flex flex-row flex-wrap justify-content-center">
           <div className="corpo-cadastro-procedimentos w-100">
             <div className="w-75">
-              <label className="mb-2">Código</label>
-              <input
-                className="form-control py-1 px-4"
-                required
-                type="number"
-                value={codigo}
-                onChange={(evento) => setCodigo(evento.target.value)}
-                placeholder="Código Interno"
-              />
-            </div>
-            <div className="w-75">
               <label className="mb-2">Procedimento</label>
               <input
                 className="form-control py-1 px-4"
@@ -59,6 +48,15 @@ function CadastroProcedimento() {
                 type="text"
                 value={tipoProcedimento}
                 onChange={(evento) => setProcedimento(evento.target.value)}
+              />
+            </div>
+            <div className="w-75">
+              <label className="mb-2">Descrição</label>
+              <textarea
+                className="form-control py-1 px-4"
+                required
+                value={descricaoProcedimento}
+                onChange={(evento) => setDescricaoProcedimento(evento.target.value)}
               />
             </div>
             <div className="w-75">

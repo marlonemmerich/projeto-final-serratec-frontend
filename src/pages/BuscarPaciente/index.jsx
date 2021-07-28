@@ -1,7 +1,7 @@
-import axios from "axios";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../../providers/Context";
+import http from "../../services/http";
 import "./style.css";
 
 function BuscarPaciente() {
@@ -15,8 +15,8 @@ function BuscarPaciente() {
     ev.preventDefault();
     setPacienteNaoEncontrado("");
     setPacientes([]);
-    axios
-      .get(`http://localhost:8080/api/pacientes/nome/${nome}`)
+    http
+      .get(`pacientes/nome/${nome}`)
       .then((response) => {
         setPacientes(response.data);
         setNome("");

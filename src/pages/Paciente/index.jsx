@@ -72,17 +72,6 @@ function Paciente() {
       .put(`http://localhost:8080/api/pacientes/${id}`, paciente)
       .then((response) => {
         alert(`Cadastro do paciente ${nome} alterado com sucesso!`);
-        setNome("");
-        setEmail("");
-        setCpf("");
-        setTelefone("");
-        setDataNascimento("");
-        setCep("");
-        setRua("");
-        setNumero("");
-        setBairro("");
-        setCidade("");
-        setEstado("");
       })
       .catch((erro) => {
         console.log("Hmmm.. Tem algo errado");
