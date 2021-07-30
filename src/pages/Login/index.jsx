@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import MensagemErro from "./MensagemErro";
@@ -23,17 +22,30 @@ function Login() {
         senha: senha
     }
 
-    axios.post('http://localhost:8080/api/login', usuario)
+    const login = () => {
+      return Promise.resolve({
+        data: {
+          usuario: {
+            id: "123",
+            token: "123"
+          }
+        }
+      });
+    };
+
+    // axios.post('http://localhost:8080/api/login', usuario)
+    login()
         .then((response) => {
-            localStorage.setItem("id", response.data.usuario.id);
-            localStorage.setItem("token", response.data.token);
-            localStorage.setItem(
-                "userName",
-                response.data.usuario.userName
-            );
+            localStorage.setItem("@LOGIN:usuario", JSON.stringify(response.data));
+            // localStorage.setItem("id", response.data.usuario.id);
+            // localStorage.setItem("token", response.data.token);
+            // localStorage.setItem(
+            //     "userName",
+            //     response.data.usuario.userName
+            // );
             history.push("/home");
         })
-        .catch(error => { 
+        .catch(error => {
             console.error(error)
             setMensagem("E-mail ou senha incorretos");
             setTimeout(() => {
